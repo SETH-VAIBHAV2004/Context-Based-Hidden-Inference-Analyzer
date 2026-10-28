@@ -1,0 +1,18 @@
+---
+description: Scientific integrity rules for the pragmatic inference research platform
+alwaysApply: true
+---
+
+# Research integrity
+
+This repository implements a Computational Linguistics project. Treat claims as hypotheses until experiments exist.
+
+- Never fabricate metrics, citations, dataset statistics, or deployment status.
+- Never show placeholder charts or invented model outputs as measured results.
+- If a model, dataset, or calibration method is not configured, say so in the API and UI.
+- SwordsmanImp is Chinese sitcom data. Do not silently translate it or call it an English corpus.
+- Circa is primarily polar-question / indirect-answer pairs with situational context, not long multi-turn sitcom dialogue.
+- Evidence spans must quote exact utterance text. Do not claim a speaker said something that was only implied.
+- Generated natural-language explanations are not the model's internal reasoning.
+- Fit TF-IDF and other learned preprocessors on training data only.
+- Do not commit secrets, raw licensed dataset dumps, or checkpoints.

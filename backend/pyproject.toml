@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pragmatic-inference"
+version = "0.1.0"
+description = "Explainable context-aware pragmatic inference research library and API"
+readme = "../README.md"
+requires-python = ">=3.11,<3.13"
+authors = [{ name = "Inferring the Unsaid" }]
+dependencies = [
+  "fastapi==0.115.6",
+  "uvicorn[standard]==0.34.0",
+  "pydantic==2.10.4",
+  "pydantic-settings==2.7.0",
+  "scikit-learn==1.6.1",
+  "pandas==2.2.3",
+  "numpy==2.2.1",
+  "joblib==1.4.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.4",
+  "httpx==0.28.1",
+  "ruff==0.8.6",
+]
+transformers = [
+  "torch>=2.4.0",
+  "transformers>=4.46.0",
+]
+linguistics = [
+  "spacy>=3.8.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*", "nlp*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
