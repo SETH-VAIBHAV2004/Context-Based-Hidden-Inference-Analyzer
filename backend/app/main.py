@@ -284,11 +284,14 @@ def train_model(payload: TrainRequest) -> TrainResponse:
         )
     
     # Split data
-    train_examples, test_examples = group_aware_split(
+    splits = group_aware_split(
         examples,
-        test_ratio=payload.test_ratio,
         seed=payload.seed,
+        train_ratio=1.0 - payload.test_ratio - 0.1,  # Save 10% for validation
+        val_ratio=0.1,
     )
+    train_examples = splits["train"]
+    test_examples = splits["test"]
     
     if payload.model_id == "tfidf_lr":
         # Train model
